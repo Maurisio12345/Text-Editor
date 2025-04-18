@@ -60,6 +60,7 @@
             this.txtEditor.Name = "txtEditor";
             this.txtEditor.Size = new System.Drawing.Size(776, 334);
             this.txtEditor.TabIndex = 1;
+            this.txtEditor.TextChanged += new System.EventHandler(this.txtEditor_TextChanged);
             // 
             // btnOpenFile
             // 

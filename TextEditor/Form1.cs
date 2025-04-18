@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -140,7 +141,21 @@ namespace TextEditor
             Process.Start("https://github.com/Maurisio12345");
         }
 
+        private void txtEditor_TextChanged(object sender, EventArgs e)
+        {
+            // tästä alas päin alkaa logiikka jolla muutetaan eka kirjain aina isoksi
+            txtEditor.TextChanged -= txtEditor_TextChanged;
 
+            string teksti = txtEditor.Text;
 
+            if (!string.IsNullOrEmpty(teksti) && !char.IsUpper(teksti[0]))
+            {
+                int cursorPos = txtEditor.SelectionStart; 
+                txtEditor.Text = char.ToUpper(teksti[0]) + teksti.Substring(1);
+                txtEditor.SelectionStart = cursorPos;      
+            }
+            // oli
+            txtEditor.TextChanged += txtEditor_TextChanged;
+        }
     }
 }
