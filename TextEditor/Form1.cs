@@ -29,7 +29,6 @@ namespace TextEditor
 
 
             // teksti arean setuppaus
-            // koodi osiota varten dockfill että koko näytöllä koodi kohta on iso
             txtEditor.Dock = DockStyle.Fill;
             txtEditor.ScrollBars = ScrollBars.Both;
             txtEditor.WordWrap = false;
